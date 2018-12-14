@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
@@ -45,10 +46,30 @@ public class CurriculumFragment extends Fragment {
         titles = new ArrayList<>();
 
         // put sub views of this tab into arraylist
-        views.add(View.inflate(getActivity(), R.layout.cu_programme_overview, null));
-        views.add(View.inflate(getActivity(), R.layout.cu_courses, null));
-        views.add(View.inflate(getActivity(), R.layout.cu_duration, null));
-        views.add(View.inflate(getActivity(), R.layout.cu_regulations, null));
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Curriculum/Programme-Overview");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Curriculum/Courses");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Curriculum/Schedule");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Curriculum/Regulations");
+            views.add(v1);
+        }
         titles.add("Programme Overview");
         titles.add("Courses");
         titles.add("Duration of Study & Class Schedule");

@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
@@ -45,7 +46,13 @@ public class NewsAndEventsFragment extends Fragment {
         titles = new ArrayList<>();
 
         // put sub views of this tab into arraylist
-        views.add(View.inflate(getActivity(), R.layout.news, null));
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/NewsnEvents");
+            views.add(v1);
+        }
+//        views.add(View.inflate(getActivity(), R.layout.news, null));
         titles.add("News And Events");
     }
 

@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
@@ -45,9 +46,24 @@ public class AboutFragment extends Fragment {
         titles = new ArrayList<>();
 
         // put sub views of this tab into arraylist
-        views.add(View.inflate(getActivity(), R.layout.about_faculty, null));
-        views.add(View.inflate(getActivity(), R.layout.about_message_from_programme_director, null));
-        views.add(View.inflate(getActivity(), R.layout.about_about_hku, null));
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/About/Faculty");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/About/MessageFromDirector");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/About/AboutHKU");
+            views.add(v1);
+        }
         titles.add("Faculty");
         titles.add("Message From Programme Director");
         titles.add("About HKU");

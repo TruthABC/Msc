@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
@@ -45,8 +46,20 @@ public class StudentResourcesFragment extends Fragment {
         titles = new ArrayList<>();
 
         // put sub views of this tab into arraylist
-        views.add(View.inflate(getActivity(), R.layout.stu_learning_environment, null));
-        views.add(View.inflate(getActivity(), R.layout.stu_link, null));
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/StuRes/Environment");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/StuRes/Useful-Links");
+            views.add(v1);
+        }
+//        views.add(View.inflate(getActivity(), R.layout.stu_learning_environment, null));
+//        views.add(View.inflate(getActivity(), R.layout.stu_link, null));
         titles.add("Learning Environment");
         titles.add("Useful Links");
     }

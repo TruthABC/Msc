@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
@@ -46,12 +47,48 @@ public class AdmissionFragment extends Fragment {
         titles = new ArrayList<>();
 
         // put sub views of this tab into arraylist
-        views.add(View.inflate(getActivity(), R.layout.admission_admission_requirements, null));
-        views.add(View.inflate(getActivity(), R.layout.admission_application_procedures, null));
-        views.add(View.inflate(getActivity(), R.layout.admission_composition_fees, null));
-        views.add(View.inflate(getActivity(), R.layout.admission_words_from_students_and_graduates, null));
-        views.add(View.inflate(getActivity(), R.layout.admission_information_sessions, null));
-        views.add(View.inflate(getActivity(), R.layout.admission_faq, null));
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Admission/Requirements");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Admission/Procedures");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Admission/Fees");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Admission/Students-comments");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Admission/Info-session");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/Admission/FAQ");
+            views.add(v1);
+        }
+//        views.add(View.inflate(getActivity(), R.layout.admission_admission_requirements, null));
+//        views.add(View.inflate(getActivity(), R.layout.admission_application_procedures, null));
+//        views.add(View.inflate(getActivity(), R.layout.admission_composition_fees, null));
+//        views.add(View.inflate(getActivity(), R.layout.admission_words_from_students_and_graduates, null));
+//        views.add(View.inflate(getActivity(), R.layout.admission_information_sessions, null));
+//        views.add(View.inflate(getActivity(), R.layout.admission_faq, null));
         titles.add("Admission Requirements");
         titles.add("Application Procedures");
         titles.add("Composition Fees");

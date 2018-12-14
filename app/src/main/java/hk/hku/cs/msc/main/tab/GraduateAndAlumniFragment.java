@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import java.util.ArrayList;
 
@@ -45,8 +46,20 @@ public class GraduateAndAlumniFragment extends Fragment {
         titles = new ArrayList<>();
 
         // put sub views of this tab into arraylist
-        views.add(View.inflate(getActivity(), R.layout.grad_association, null));
-        views.add(View.inflate(getActivity(), R.layout.grad_activities, null));
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/GradAlumni/AlumniAssociation");
+            views.add(v1);
+        }
+        {
+            View v1 = View.inflate(getActivity(), R.layout.cu_programme_overview, null);
+            WebView webView = v1.findViewById(R.id.web_view);
+            webView.loadUrl("https://www.msc-cs.hku.hk/GradAlumni/Activities");
+            views.add(v1);
+        }
+//        views.add(View.inflate(getActivity(), R.layout.grad_association, null));
+//        views.add(View.inflate(getActivity(), R.layout.grad_activities, null));
         titles.add("MSc(CompSc) Alumni Association");
         titles.add("Alumni Activities");
     }
