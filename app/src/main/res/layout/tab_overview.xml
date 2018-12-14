@@ -1,14 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text1"
+    <!-- all scrollview is a relative layout -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="(0)Overview"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <!-- 2 (can be more) pictures slider -->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#77000000" />
+
+        <!-- text of picture -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/view_pager"
+            android:background="#77000000"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/image_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="image text"
+                android:textColor="#bbffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- content after slider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_pager"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Programme Overview -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:padding="5dp"
+                android:shadowColor="#ff9800"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Master of Science in Computer Science, HKU"
+                android:textColor="#56179c"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Programme Overview"
+                android:textColor="#404040"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/btn_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#ff9800"
+                android:paddingLeft="50dp"
+                android:paddingTop="10dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="50dp"
+                android:text="MORE DETAIL"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="The MSc(CompSc) programme is a comprehensive postgraduate study programme provides advanced and in-depth learning in Computer Science. The programme is credit unit based, with courses of both applied and fundamental nature. Students can choose from a comprehensive and diversified study in Computer Science courses or focussed streams of study. Focussed streams of study represent a cohesive collection of related courses that provides both fundamental and in-depth exposure to students in a given ICT domain."
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!-- K P Chow's message -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_kpchow"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:clickable="true"
+                app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardPreventCornerOverlap="false">
+                <!-- all card is a relative layout-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/kpchow_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/mfpd"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_alignTop="@id/kpchow_bg"
+                        android:background="#77000000"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="@dimen/margin_small"
+                            android:src="@drawable/chowkp_square"
+                            android:layout_centerHorizontal="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#bbffffff"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:text="Message from the Programme Director" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- admission 2019 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Admission 2019"
+                android:textColor="#404040"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/btn_ad2019"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#ff9800"
+                android:paddingLeft="50dp"
+                android:paddingTop="10dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="50dp"
+                android:text="MORE DETAIL"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="To help you make a decision, here is a summary of the facts and details you will need - programme schedule, composition fees and application deadlines."
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <!-- programme schedule -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:clickable="true"
+                app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardPreventCornerOverlap="false">
+                <!-- all card is a relative layout-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/schedule_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/programme_schedule"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_alignTop="@id/schedule_bg"
+                        android:background="#77000000"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="65dp"
+                            android:textColor="#bbffffff"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:text="Programme Schedule" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- composition fee -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_fee"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:clickable="true"
+                app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardPreventCornerOverlap="false">
+                <!-- all card is a relative layout-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/fee_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/crogramme_fees"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_alignTop="@id/fee_bg"
+                        android:background="#77000000"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="65dp"
+                            android:textColor="#bbffffff"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:text="Composition Fees" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- application deadline -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_ddl"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:clickable="true"
+                app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardPreventCornerOverlap="false">
+                <!-- all card is a relative layout-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ddl_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/application_deadlines"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_alignTop="@id/ddl_bg"
+                        android:background="#77000000"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="65dp"
+                            android:textColor="#bbffffff"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:text="Application Deadlines" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
