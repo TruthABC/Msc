@@ -64,4 +64,7 @@ public class StudentResourcesFragment extends Fragment {
 
     }
 
+    public void forwardJump(int targetSubPage) {
+        mViewPager.setCurrentItem(targetSubPage);
+    }
 }

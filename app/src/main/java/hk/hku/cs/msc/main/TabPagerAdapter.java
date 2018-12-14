@@ -15,7 +15,7 @@ import hk.hku.cs.msc.main.tab.StudentResourcesFragment;
 public class TabPagerAdapter extends FragmentPagerAdapter {
 
     public static final String[] TITLES = {"Overview","About","Admission","Curriculum","Graduate & Alumni","News & Events","Student Resources"};
-    private Fragment[] fragments;
+    public Fragment[] fragments;//public: for jump forward
 
     public TabPagerAdapter(FragmentManager fm) {
         super(fm);

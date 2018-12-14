@@ -66,4 +66,7 @@ public class AboutFragment extends Fragment {
 
     }
 
+    public void forwardJump(int targetSubPage) {
+        mViewPager.setCurrentItem(targetSubPage);
+    }
 }

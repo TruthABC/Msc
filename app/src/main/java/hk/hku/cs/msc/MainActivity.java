@@ -3,16 +3,22 @@ package hk.hku.cs.msc;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
 import hk.hku.cs.msc.main.TabPagerAdapter;
+import hk.hku.cs.msc.main.tab.AboutFragment;
+import hk.hku.cs.msc.main.tab.AdmissionFragment;
+import hk.hku.cs.msc.main.tab.CurriculumFragment;
+import hk.hku.cs.msc.main.tab.GraduateAndAlumniFragment;
+import hk.hku.cs.msc.main.tab.StudentResourcesFragment;
 
 public class MainActivity extends FragmentActivity {
 
     // When requested, this adapter returns a specified Fragment(all in package "main.tab"),
-    TabPagerAdapter mTabPagerAdapter;
-    ViewPager mTabPager;
+    private TabPagerAdapter mTabPagerAdapter;
+    private ViewPager mTabPager;//public: for "click & jump" request between tabs
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,7 @@ public class MainActivity extends FragmentActivity {
             public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
                 // When the tab is selected, switch to the corresponding page in the ViewPager.
                 mTabPager.setCurrentItem(tab.getPosition());
+                //        jumpFlag = true;
             }
             @Override
             public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
@@ -52,6 +59,7 @@ public class MainActivity extends FragmentActivity {
                     public void onPageSelected(int position) {
                         // When swiping between pages, select the corresponding tab.
                         getActionBar().setSelectedNavigationItem(position);
+                        //        jumpFlag = true;
                     }
                 });
 
@@ -61,6 +69,34 @@ public class MainActivity extends FragmentActivity {
                     actionBar.newTab()
                             .setText(TabPagerAdapter.TITLES[i])
                             .setTabListener(tabListener));
+        }
+    }
+
+    //record forward jump between pages
+    //TODO: back button will appear, when just jumped to one page
+    public boolean jumpFlag = false;
+    public int lastTab = 0;
+    public int lastSubPage = 0;
+    /**
+     * targeting one specific page and jump
+     *  called by fragment button click
+     * @param targetTab
+     * @param targetSubPage
+     */
+    public void forwardJump(int targetTab, int targetSubPage) {
+//        jumpFlag = true;
+        lastTab = targetTab;
+        lastSubPage = targetSubPage;
+        mTabPager.setCurrentItem(targetTab);
+        Fragment[] fragments = mTabPagerAdapter.fragments;
+        switch (targetTab) {
+            case 0: /*OverviewFragment*/ break;
+            case 1: ((AboutFragment)fragments[targetTab]).forwardJump(targetSubPage); break;
+            case 2: ((AdmissionFragment)fragments[targetTab]).forwardJump(targetSubPage); break;
+            case 3: ((CurriculumFragment)fragments[targetTab]).forwardJump(targetSubPage); break;
+            case 4: ((GraduateAndAlumniFragment)fragments[targetTab]).forwardJump(targetSubPage); break;
+            case 5: /*NewsAndEventsFragment*/ break;
+            case 6: ((StudentResourcesFragment)fragments[targetTab]).forwardJump(targetSubPage); break;
         }
     }
 
