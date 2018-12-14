@@ -2,6 +2,7 @@
 <resources>
     <dimen name="image_height_icon">30dp</dimen>
 
+    <dimen name="bar_height">50dip</dimen>
     <dimen name="height_normal">50dp</dimen>
     <dimen name="height_large">75dp</dimen>
     <dimen name="height_huge">100dp</dimen>
